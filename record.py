@@ -47,9 +47,9 @@ class Record:
 
 # - Видалення телефонів remove_phone
     def remove_phone(self, old_phone):
-        for index, phone in enumerate(self.phones):
+        for phone in self.phones:
             if phone.value == old_phone:
-                self.phones.remove(self.phones[index])
+                self.phones.remove(phone)
                 return
         return self.wrong_phone_alert(old_phone)
 
