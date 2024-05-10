@@ -19,7 +19,15 @@ class Name(Field):
 # Phone: Клас для зберігання номера телефону. Має валідацію формату (10 цифр).
 class Phone(Field):
     # реалізація класу - формат телефона 10 цифр
-    print()          
+    def __init__(self, phone):
+        super().__init__(phone)
+    
+    # ------------------------------------------------------ Handle wrong length Error!
+    def validate(self):
+        if len(self.value) == 10:
+            return self.value
+        else:
+            print(f'{self.value} does not have 10 digits')
 
 
 # Record: Клас для зберігання інформації про контакт. Кожен запис містить набір полів, включаючи ім'я та список телефонів.
@@ -33,12 +41,11 @@ class Record:
 
 # - Додавання телефонів add_phone
     def add_phone(self, phone):
-    # ------------------------------------------------------ Handle wrong length Error!
-        if len(phone) == 10:
-            self.phones.append(Phone(phone))
-        else:
-            print(f'{phone} does not have 10 digits')
-    
+        new_phone = Phone(phone)
+        is_valid = new_phone.validate()
+        if is_valid:
+            self.phones.append(new_phone)
+
 
 # - Пошук телефону (об'єкту Phone) - find_phone
     # ----------------------------------------- Handle IndexError if searched_phone is not found! or add if any()
