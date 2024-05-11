@@ -24,7 +24,7 @@ class Record:
 
 
     def wrong_phone_alert(self, phone):
-        print(f'User {self.name} has no phone {phone}.\nPlease, choose one of the existing phone numbers:\n{'\n'.join(p.value for p in self.phones)}')
+        print(f'User {self.name} has no phone {phone}.\nPlease, choose one of the existing phone numbers:\n{chr(10).join(p.value for p in self.phones)}')
 
 
 # - Пошук телефону (об'єкту Phone) - find_phone
