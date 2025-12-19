@@ -1,12 +1,10 @@
-import networkx as nx
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from collections import defaultdict
 from edges import vienna_ubahn_edges
+from collections import defaultdict
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import networkx as nx
 
-
-"""------------------ TASK 1 ------------------"""
-
+# ----- Create graph -----
 G = nx.Graph()
 
 # ----- Add edges for all stations in all lines -----
@@ -55,21 +53,6 @@ for node in G.nodes():
 
 # bond colors to nodes acc. to their order
 node_colors = [node_color_dict[node] for node in G.nodes()]
-
-
-"""------------------ TASK 2 ------------------"""
-
-
-# def find_short_path(graph, start, end):
-#     path = nx.shortest_path(graph, start, end, weight="weight")
-#     dist = nx.shortest_path_length(graph, start, end, weight="weight")
-#     print("Найкоротший шлях:", path)
-#     print("Сума відстаней (км):", dist)
-
-
-# start = "Stadion"
-# end = "Gasometer"
-# find_short_path(G, start, end)
 
 
 if __name__ == "__main__":
